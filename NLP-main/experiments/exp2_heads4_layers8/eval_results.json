@@ -1,0 +1,25 @@
+{
+  "experiment": "exp2_heads4_layers8",
+  "config": {
+    "model_path": "../tokenizer/medical_bpe.model",
+    "vocab_size": 8000,
+    "max_seq_len": 512,
+    "batch_size": 64,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 8,
+    "ffn_dim": 1024,
+    "pad_id": 0,
+    "unk_id": 1,
+    "eos_id": 4,
+    "patient_id": 5,
+    "doctor_id": 6
+  },
+  "test_samples": 10130,
+  "test_loss": 3.1642,
+  "test_perplexity": 23.6689,
+  "bleu": 2.8066,
+  "rouge1": 23.0615,
+  "rouge2": 4.0799,
+  "rougeL": 14.4144
+}

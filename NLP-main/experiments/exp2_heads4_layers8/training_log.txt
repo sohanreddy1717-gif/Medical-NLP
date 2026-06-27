@@ -1,0 +1,568 @@
+nohup: ignoring input
+/home/sem4/NLP/NLP/notebooks/step5_train.py:245: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.tokens = torch.load(tokens_path)
+/home/sem4/NLP/NLP/notebooks/step5_train.py:246: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.masks  = torch.load(masks_path)
+PyTorch version : 2.5.1+cu121
+CUDA available  : True
+GPU             : NVIDIA GeForce RTX 4060 Ti
+VRAM            : 15.6 GB
+=== Config Loaded ===
+  model_path      : ../tokenizer/medical_bpe.model
+  vocab_size      : 8000
+  max_seq_len     : 512
+  batch_size      : 64
+  d_model         : 256
+  n_heads         : 4
+  n_layers        : 8
+  ffn_dim         : 1024
+  pad_id          : 0
+  unk_id          : 1
+  eos_id          : 4
+  patient_id      : 5
+  doctor_id       : 6
+
+=== Training Hyperparameters ===
+  MAX_EPOCHS    : 20
+  LEARNING_RATE : 0.0003
+  WARMUP_STEPS  : 500
+  PATIENCE      : 3
+  GRAD_CLIP     : 1.0
+
+✅ Experiment : exp2_heads4_layers8
+✅ Saving to  : ../experiments/exp2_heads4_layers8
+All model classes defined OK
+Loaded 81,049 sequences from ../data/train_tokens.pt
+Loaded 10,120 sequences from ../data/val_tokens.pt
+
+Train batches : 1267
+Val batches   : 159
+Batch size    : 64
+Using device: cuda
+Saved initial weights to ../experiments/exp2_heads4_layers8/checkpoints/model_init.pt
+Model parameters : 8,497,664
+Total steps      : 25,340
+Warmup steps     : 500
+train_one_epoch and validate functions defined OK
+============================================================
+Starting Training
+Experiment : exp2_heads4_layers8
+Saving to  : ../experiments/exp2_heads4_layers8/checkpoints
+============================================================
+
+── Epoch 1/20 ──
+  Epoch 1 | Batch 100/1267 | Loss: 8.5672 | Perplexity: 5256.50 | LR: 0.000060 | Time: 68s
+  Epoch 1 | Batch 200/1267 | Loss: 7.9006 | Perplexity: 2698.91 | LR: 0.000120 | Time: 136s
+  Epoch 1 | Batch 300/1267 | Loss: 7.3747 | Perplexity: 1595.04 | LR: 0.000180 | Time: 203s
+  Epoch 1 | Batch 400/1267 | Loss: 6.9738 | Perplexity: 1068.32 | LR: 0.000240 | Time: 271s
+  Epoch 1 | Batch 500/1267 | Loss: 6.6675 | Perplexity: 786.43 | LR: 0.000300 | Time: 339s
+  Epoch 1 | Batch 600/1267 | Loss: 6.4296 | Perplexity: 619.95 | LR: 0.000300 | Time: 407s
+  Epoch 1 | Batch 700/1267 | Loss: 6.2353 | Perplexity: 510.44 | LR: 0.000300 | Time: 475s
+  Epoch 1 | Batch 800/1267 | Loss: 6.0703 | Perplexity: 432.81 | LR: 0.000300 | Time: 542s
+  Epoch 1 | Batch 900/1267 | Loss: 5.9281 | Perplexity: 375.44 | LR: 0.000300 | Time: 610s
+  Epoch 1 | Batch 1000/1267 | Loss: 5.8040 | Perplexity: 331.62 | LR: 0.000300 | Time: 678s
+  Epoch 1 | Batch 1100/1267 | Loss: 5.6940 | Perplexity: 297.08 | LR: 0.000300 | Time: 746s
+  Epoch 1 | Batch 1200/1267 | Loss: 5.5945 | Perplexity: 268.94 | LR: 0.000299 | Time: 813s
+
+Epoch 1 Summary:
+  Train Loss   : 5.5348 | Perplexity: 253.35
+  Val Loss     : 4.3287   | Perplexity: 75.85
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 4.3287)
+
+── Epoch 2/20 ──
+  Epoch 2 | Batch 100/1267 | Loss: 4.3743 | Perplexity: 79.38 | LR: 0.000299 | Time: 68s
+  Epoch 2 | Batch 200/1267 | Loss: 4.3456 | Perplexity: 77.14 | LR: 0.000299 | Time: 136s
+  Epoch 2 | Batch 300/1267 | Loss: 4.3223 | Perplexity: 75.36 | LR: 0.000299 | Time: 203s
+  Epoch 2 | Batch 400/1267 | Loss: 4.2988 | Perplexity: 73.61 | LR: 0.000298 | Time: 271s
+  Epoch 2 | Batch 500/1267 | Loss: 4.2777 | Perplexity: 72.07 | LR: 0.000298 | Time: 339s
+  Epoch 2 | Batch 600/1267 | Loss: 4.2565 | Perplexity: 70.56 | LR: 0.000298 | Time: 407s
+  Epoch 2 | Batch 700/1267 | Loss: 4.2353 | Perplexity: 69.08 | LR: 0.000297 | Time: 475s
+  Epoch 2 | Batch 800/1267 | Loss: 4.2139 | Perplexity: 67.62 | LR: 0.000297 | Time: 542s
+  Epoch 2 | Batch 900/1267 | Loss: 4.1939 | Perplexity: 66.28 | LR: 0.000297 | Time: 610s
+  Epoch 2 | Batch 1000/1267 | Loss: 4.1772 | Perplexity: 65.18 | LR: 0.000296 | Time: 678s
+  Epoch 2 | Batch 1100/1267 | Loss: 4.1610 | Perplexity: 64.14 | LR: 0.000296 | Time: 746s
+  Epoch 2 | Batch 1200/1267 | Loss: 4.1446 | Perplexity: 63.09 | LR: 0.000295 | Time: 813s
+
+Epoch 2 Summary:
+  Train Loss   : 4.1344 | Perplexity: 62.45
+  Val Loss     : 3.8425   | Perplexity: 46.64
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.8425)
+
+── Epoch 3/20 ──
+  Epoch 3 | Batch 100/1267 | Loss: 3.9213 | Perplexity: 50.47 | LR: 0.000295 | Time: 68s
+  Epoch 3 | Batch 200/1267 | Loss: 3.9081 | Perplexity: 49.81 | LR: 0.000294 | Time: 136s
+  Epoch 3 | Batch 300/1267 | Loss: 3.8987 | Perplexity: 49.34 | LR: 0.000294 | Time: 203s
+  Epoch 3 | Batch 400/1267 | Loss: 3.8894 | Perplexity: 48.88 | LR: 0.000293 | Time: 271s
+  Epoch 3 | Batch 500/1267 | Loss: 3.8831 | Perplexity: 48.57 | LR: 0.000292 | Time: 339s
+  Epoch 3 | Batch 600/1267 | Loss: 3.8714 | Perplexity: 48.01 | LR: 0.000292 | Time: 407s
+  Epoch 3 | Batch 700/1267 | Loss: 3.8642 | Perplexity: 47.67 | LR: 0.000291 | Time: 475s
+  Epoch 3 | Batch 800/1267 | Loss: 3.8565 | Perplexity: 47.30 | LR: 0.000290 | Time: 542s
+  Epoch 3 | Batch 900/1267 | Loss: 3.8497 | Perplexity: 46.98 | LR: 0.000290 | Time: 610s
+  Epoch 3 | Batch 1000/1267 | Loss: 3.8426 | Perplexity: 46.65 | LR: 0.000289 | Time: 678s
+  Epoch 3 | Batch 1100/1267 | Loss: 3.8359 | Perplexity: 46.34 | LR: 0.000288 | Time: 746s
+  Epoch 3 | Batch 1200/1267 | Loss: 3.8298 | Perplexity: 46.05 | LR: 0.000288 | Time: 813s
+
+Epoch 3 Summary:
+  Train Loss   : 3.8254 | Perplexity: 45.85
+  Val Loss     : 3.6359   | Perplexity: 37.94
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.6359)
+
+── Epoch 4/20 ──
+  Epoch 4 | Batch 100/1267 | Loss: 3.7049 | Perplexity: 40.64 | LR: 0.000286 | Time: 68s
+  Epoch 4 | Batch 200/1267 | Loss: 3.7061 | Perplexity: 40.70 | LR: 0.000286 | Time: 136s
+  Epoch 4 | Batch 300/1267 | Loss: 3.6990 | Perplexity: 40.41 | LR: 0.000285 | Time: 203s
+  Epoch 4 | Batch 400/1267 | Loss: 3.6969 | Perplexity: 40.32 | LR: 0.000284 | Time: 271s
+  Epoch 4 | Batch 500/1267 | Loss: 3.6946 | Perplexity: 40.23 | LR: 0.000283 | Time: 339s
+  Epoch 4 | Batch 600/1267 | Loss: 3.6892 | Perplexity: 40.01 | LR: 0.000282 | Time: 407s
+  Epoch 4 | Batch 700/1267 | Loss: 3.6832 | Perplexity: 39.77 | LR: 0.000281 | Time: 474s
+  Epoch 4 | Batch 800/1267 | Loss: 3.6802 | Perplexity: 39.65 | LR: 0.000280 | Time: 542s
+  Epoch 4 | Batch 900/1267 | Loss: 3.6784 | Perplexity: 39.58 | LR: 0.000279 | Time: 610s
+  Epoch 4 | Batch 1000/1267 | Loss: 3.6759 | Perplexity: 39.48 | LR: 0.000278 | Time: 678s
+  Epoch 4 | Batch 1100/1267 | Loss: 3.6735 | Perplexity: 39.39 | LR: 0.000277 | Time: 746s
+  Epoch 4 | Batch 1200/1267 | Loss: 3.6695 | Perplexity: 39.23 | LR: 0.000276 | Time: 813s
+
+Epoch 4 Summary:
+  Train Loss   : 3.6679 | Perplexity: 39.17
+  Val Loss     : 3.5165   | Perplexity: 33.67
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.5165)
+
+── Epoch 5/20 ──
+  Epoch 5 | Batch 100/1267 | Loss: 3.5810 | Perplexity: 35.91 | LR: 0.000275 | Time: 68s
+  Epoch 5 | Batch 200/1267 | Loss: 3.5805 | Perplexity: 35.89 | LR: 0.000274 | Time: 136s
+  Epoch 5 | Batch 300/1267 | Loss: 3.5849 | Perplexity: 36.05 | LR: 0.000272 | Time: 203s
+  Epoch 5 | Batch 400/1267 | Loss: 3.5837 | Perplexity: 36.01 | LR: 0.000271 | Time: 271s
+  Epoch 5 | Batch 500/1267 | Loss: 3.5810 | Perplexity: 35.91 | LR: 0.000270 | Time: 339s
+  Epoch 5 | Batch 600/1267 | Loss: 3.5798 | Perplexity: 35.87 | LR: 0.000269 | Time: 407s
+  Epoch 5 | Batch 700/1267 | Loss: 3.5771 | Perplexity: 35.77 | LR: 0.000268 | Time: 474s
+  Epoch 5 | Batch 800/1267 | Loss: 3.5765 | Perplexity: 35.75 | LR: 0.000267 | Time: 542s
+  Epoch 5 | Batch 900/1267 | Loss: 3.5723 | Perplexity: 35.60 | LR: 0.000266 | Time: 610s
+  Epoch 5 | Batch 1000/1267 | Loss: 3.5710 | Perplexity: 35.55 | LR: 0.000264 | Time: 678s
+  Epoch 5 | Batch 1100/1267 | Loss: 3.5685 | Perplexity: 35.46 | LR: 0.000263 | Time: 746s
+  Epoch 5 | Batch 1200/1267 | Loss: 3.5674 | Perplexity: 35.42 | LR: 0.000262 | Time: 813s
+
+Epoch 5 Summary:
+  Train Loss   : 3.5656 | Perplexity: 35.36
+  Val Loss     : 3.4379   | Perplexity: 31.12
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.4379)
+
+── Epoch 6/20 ──
+  Epoch 6 | Batch 100/1267 | Loss: 3.4902 | Perplexity: 32.79 | LR: 0.000260 | Time: 68s
+  Epoch 6 | Batch 200/1267 | Loss: 3.4987 | Perplexity: 33.07 | LR: 0.000258 | Time: 136s
+  Epoch 6 | Batch 300/1267 | Loss: 3.4990 | Perplexity: 33.08 | LR: 0.000257 | Time: 203s
+  Epoch 6 | Batch 400/1267 | Loss: 3.5018 | Perplexity: 33.17 | LR: 0.000256 | Time: 271s
+  Epoch 6 | Batch 500/1267 | Loss: 3.5029 | Perplexity: 33.21 | LR: 0.000254 | Time: 339s
+  Epoch 6 | Batch 600/1267 | Loss: 3.5007 | Perplexity: 33.14 | LR: 0.000253 | Time: 407s
+  Epoch 6 | Batch 700/1267 | Loss: 3.5005 | Perplexity: 33.13 | LR: 0.000252 | Time: 475s
+  Epoch 6 | Batch 800/1267 | Loss: 3.4994 | Perplexity: 33.10 | LR: 0.000250 | Time: 542s
+  Epoch 6 | Batch 900/1267 | Loss: 3.4976 | Perplexity: 33.03 | LR: 0.000249 | Time: 610s
+  Epoch 6 | Batch 1000/1267 | Loss: 3.4967 | Perplexity: 33.01 | LR: 0.000247 | Time: 678s
+  Epoch 6 | Batch 1100/1267 | Loss: 3.4943 | Perplexity: 32.93 | LR: 0.000246 | Time: 746s
+  Epoch 6 | Batch 1200/1267 | Loss: 3.4920 | Perplexity: 32.85 | LR: 0.000244 | Time: 813s
+
+Epoch 6 Summary:
+  Train Loss   : 3.4916 | Perplexity: 32.84
+  Val Loss     : 3.3788   | Perplexity: 29.34
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.3788)
+
+── Epoch 7/20 ──
+  Epoch 7 | Batch 100/1267 | Loss: 3.4299 | Perplexity: 30.87 | LR: 0.000242 | Time: 68s
+  Epoch 7 | Batch 200/1267 | Loss: 3.4340 | Perplexity: 31.00 | LR: 0.000240 | Time: 136s
+  Epoch 7 | Batch 300/1267 | Loss: 3.4344 | Perplexity: 31.01 | LR: 0.000239 | Time: 203s
+  Epoch 7 | Batch 400/1267 | Loss: 3.4341 | Perplexity: 31.00 | LR: 0.000237 | Time: 271s
+  Epoch 7 | Batch 500/1267 | Loss: 3.4401 | Perplexity: 31.19 | LR: 0.000236 | Time: 339s
+  Epoch 7 | Batch 600/1267 | Loss: 3.4398 | Perplexity: 31.18 | LR: 0.000234 | Time: 407s
+  Epoch 7 | Batch 700/1267 | Loss: 3.4386 | Perplexity: 31.14 | LR: 0.000233 | Time: 475s
+  Epoch 7 | Batch 800/1267 | Loss: 3.4371 | Perplexity: 31.10 | LR: 0.000231 | Time: 542s
+  Epoch 7 | Batch 900/1267 | Loss: 3.4363 | Perplexity: 31.07 | LR: 0.000230 | Time: 610s
+  Epoch 7 | Batch 1000/1267 | Loss: 3.4358 | Perplexity: 31.05 | LR: 0.000228 | Time: 678s
+  Epoch 7 | Batch 1100/1267 | Loss: 3.4371 | Perplexity: 31.10 | LR: 0.000226 | Time: 746s
+  Epoch 7 | Batch 1200/1267 | Loss: 3.4356 | Perplexity: 31.05 | LR: 0.000225 | Time: 814s
+
+Epoch 7 Summary:
+  Train Loss   : 3.4347 | Perplexity: 31.02
+  Val Loss     : 3.3316   | Perplexity: 27.98
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.3316)
+
+── Epoch 8/20 ──
+  Epoch 8 | Batch 100/1267 | Loss: 3.3876 | Perplexity: 29.59 | LR: 0.000222 | Time: 68s
+  Epoch 8 | Batch 200/1267 | Loss: 3.3883 | Perplexity: 29.62 | LR: 0.000220 | Time: 136s
+  Epoch 8 | Batch 300/1267 | Loss: 3.3919 | Perplexity: 29.72 | LR: 0.000219 | Time: 203s
+  Epoch 8 | Batch 400/1267 | Loss: 3.3919 | Perplexity: 29.72 | LR: 0.000217 | Time: 271s
+  Epoch 8 | Batch 500/1267 | Loss: 3.3940 | Perplexity: 29.79 | LR: 0.000215 | Time: 339s
+  Epoch 8 | Batch 600/1267 | Loss: 3.3947 | Perplexity: 29.81 | LR: 0.000213 | Time: 407s
+  Epoch 8 | Batch 700/1267 | Loss: 3.3959 | Perplexity: 29.84 | LR: 0.000212 | Time: 475s
+  Epoch 8 | Batch 800/1267 | Loss: 3.3962 | Perplexity: 29.85 | LR: 0.000210 | Time: 542s
+  Epoch 8 | Batch 900/1267 | Loss: 3.3939 | Perplexity: 29.78 | LR: 0.000208 | Time: 610s
+  Epoch 8 | Batch 1000/1267 | Loss: 3.3922 | Perplexity: 29.73 | LR: 0.000206 | Time: 678s
+  Epoch 8 | Batch 1100/1267 | Loss: 3.3905 | Perplexity: 29.68 | LR: 0.000205 | Time: 746s
+  Epoch 8 | Batch 1200/1267 | Loss: 3.3899 | Perplexity: 29.66 | LR: 0.000203 | Time: 814s
+
+Epoch 8 Summary:
+  Train Loss   : 3.3896 | Perplexity: 29.65
+  Val Loss     : 3.3019   | Perplexity: 27.16
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.3019)
+
+── Epoch 9/20 ──
+  Epoch 9 | Batch 100/1267 | Loss: 3.3359 | Perplexity: 28.10 | LR: 0.000200 | Time: 68s
+  Epoch 9 | Batch 200/1267 | Loss: 3.3498 | Perplexity: 28.50 | LR: 0.000198 | Time: 136s
+  Epoch 9 | Batch 300/1267 | Loss: 3.3504 | Perplexity: 28.51 | LR: 0.000196 | Time: 203s
+  Epoch 9 | Batch 400/1267 | Loss: 3.3509 | Perplexity: 28.53 | LR: 0.000195 | Time: 271s
+  Epoch 9 | Batch 500/1267 | Loss: 3.3522 | Perplexity: 28.57 | LR: 0.000193 | Time: 339s
+  Epoch 9 | Batch 600/1267 | Loss: 3.3528 | Perplexity: 28.58 | LR: 0.000191 | Time: 407s
+  Epoch 9 | Batch 700/1267 | Loss: 3.3535 | Perplexity: 28.60 | LR: 0.000189 | Time: 475s
+  Epoch 9 | Batch 800/1267 | Loss: 3.3526 | Perplexity: 28.58 | LR: 0.000187 | Time: 542s
+  Epoch 9 | Batch 900/1267 | Loss: 3.3531 | Perplexity: 28.59 | LR: 0.000185 | Time: 610s
+  Epoch 9 | Batch 1000/1267 | Loss: 3.3517 | Perplexity: 28.55 | LR: 0.000184 | Time: 678s
+  Epoch 9 | Batch 1100/1267 | Loss: 3.3519 | Perplexity: 28.56 | LR: 0.000182 | Time: 746s
+  Epoch 9 | Batch 1200/1267 | Loss: 3.3516 | Perplexity: 28.55 | LR: 0.000180 | Time: 813s
+
+Epoch 9 Summary:
+  Train Loss   : 3.3527 | Perplexity: 28.58
+  Val Loss     : 3.2710   | Perplexity: 26.34
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.2710)
+
+── Epoch 10/20 ──
+  Epoch 10 | Batch 100/1267 | Loss: 3.3246 | Perplexity: 27.79 | LR: 0.000177 | Time: 68s
+  Epoch 10 | Batch 200/1267 | Loss: 3.3264 | Perplexity: 27.84 | LR: 0.000175 | Time: 136s
+  Epoch 10 | Batch 300/1267 | Loss: 3.3241 | Perplexity: 27.77 | LR: 0.000173 | Time: 203s
+  Epoch 10 | Batch 400/1267 | Loss: 3.3275 | Perplexity: 27.87 | LR: 0.000171 | Time: 271s
+  Epoch 10 | Batch 500/1267 | Loss: 3.3275 | Perplexity: 27.87 | LR: 0.000169 | Time: 339s
+  Epoch 10 | Batch 600/1267 | Loss: 3.3222 | Perplexity: 27.72 | LR: 0.000167 | Time: 407s
+  Epoch 10 | Batch 700/1267 | Loss: 3.3250 | Perplexity: 27.80 | LR: 0.000165 | Time: 475s
+  Epoch 10 | Batch 800/1267 | Loss: 3.3245 | Perplexity: 27.78 | LR: 0.000164 | Time: 542s
+  Epoch 10 | Batch 900/1267 | Loss: 3.3248 | Perplexity: 27.79 | LR: 0.000162 | Time: 610s
+  Epoch 10 | Batch 1000/1267 | Loss: 3.3229 | Perplexity: 27.74 | LR: 0.000160 | Time: 678s
+  Epoch 10 | Batch 1100/1267 | Loss: 3.3235 | Perplexity: 27.76 | LR: 0.000158 | Time: 746s
+  Epoch 10 | Batch 1200/1267 | Loss: 3.3219 | Perplexity: 27.71 | LR: 0.000156 | Time: 814s
+
+Epoch 10 Summary:
+  Train Loss   : 3.3216 | Perplexity: 27.70
+  Val Loss     : 3.2485   | Perplexity: 25.75
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.2485)
+
+── Epoch 11/20 ──
+  Epoch 11 | Batch 100/1267 | Loss: 3.2921 | Perplexity: 26.90 | LR: 0.000153 | Time: 68s
+  Epoch 11 | Batch 200/1267 | Loss: 3.2876 | Perplexity: 26.78 | LR: 0.000151 | Time: 136s
+  Epoch 11 | Batch 300/1267 | Loss: 3.2890 | Perplexity: 26.82 | LR: 0.000149 | Time: 203s
+  Epoch 11 | Batch 400/1267 | Loss: 3.2887 | Perplexity: 26.81 | LR: 0.000147 | Time: 271s
+  Epoch 11 | Batch 500/1267 | Loss: 3.2910 | Perplexity: 26.87 | LR: 0.000145 | Time: 339s
+  Epoch 11 | Batch 600/1267 | Loss: 3.2929 | Perplexity: 26.92 | LR: 0.000143 | Time: 407s
+  Epoch 11 | Batch 700/1267 | Loss: 3.2933 | Perplexity: 26.93 | LR: 0.000141 | Time: 475s
+  Epoch 11 | Batch 800/1267 | Loss: 3.2936 | Perplexity: 26.94 | LR: 0.000140 | Time: 542s
+  Epoch 11 | Batch 900/1267 | Loss: 3.2937 | Perplexity: 26.94 | LR: 0.000138 | Time: 610s
+  Epoch 11 | Batch 1000/1267 | Loss: 3.2936 | Perplexity: 26.94 | LR: 0.000136 | Time: 678s
+  Epoch 11 | Batch 1100/1267 | Loss: 3.2946 | Perplexity: 26.97 | LR: 0.000134 | Time: 746s
+  Epoch 11 | Batch 1200/1267 | Loss: 3.2957 | Perplexity: 27.00 | LR: 0.000132 | Time: 813s
+
+Epoch 11 Summary:
+  Train Loss   : 3.2957 | Perplexity: 27.00
+  Val Loss     : 3.2296   | Perplexity: 25.27
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.2296)
+
+── Epoch 12/20 ──
+  Epoch 12 | Batch 100/1267 | Loss: 3.2653 | Perplexity: 26.19 | LR: 0.000129 | Time: 68s
+  Epoch 12 | Batch 200/1267 | Loss: 3.2648 | Perplexity: 26.18 | LR: 0.000127 | Time: 136s
+  Epoch 12 | Batch 300/1267 | Loss: 3.2679 | Perplexity: 26.26 | LR: 0.000125 | Time: 203s
+  Epoch 12 | Batch 400/1267 | Loss: 3.2683 | Perplexity: 26.27 | LR: 0.000123 | Time: 271s
+  Epoch 12 | Batch 500/1267 | Loss: 3.2672 | Perplexity: 26.24 | LR: 0.000121 | Time: 339s
+  Epoch 12 | Batch 600/1267 | Loss: 3.2698 | Perplexity: 26.31 | LR: 0.000120 | Time: 407s
+  Epoch 12 | Batch 700/1267 | Loss: 3.2716 | Perplexity: 26.35 | LR: 0.000118 | Time: 475s
+  Epoch 12 | Batch 800/1267 | Loss: 3.2728 | Perplexity: 26.39 | LR: 0.000116 | Time: 542s
+  Epoch 12 | Batch 900/1267 | Loss: 3.2718 | Perplexity: 26.36 | LR: 0.000114 | Time: 610s
+  Epoch 12 | Batch 1000/1267 | Loss: 3.2724 | Perplexity: 26.37 | LR: 0.000112 | Time: 678s
+  Epoch 12 | Batch 1100/1267 | Loss: 3.2728 | Perplexity: 26.39 | LR: 0.000110 | Time: 746s
+  Epoch 12 | Batch 1200/1267 | Loss: 3.2736 | Perplexity: 26.41 | LR: 0.000108 | Time: 813s
+
+Epoch 12 Summary:
+  Train Loss   : 3.2737 | Perplexity: 26.41
+  Val Loss     : 3.2155   | Perplexity: 24.92
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.2155)
+
+── Epoch 13/20 ──
+  Epoch 13 | Batch 100/1267 | Loss: 3.2492 | Perplexity: 25.77 | LR: 0.000105 | Time: 68s
+  Epoch 13 | Batch 200/1267 | Loss: 3.2464 | Perplexity: 25.70 | LR: 0.000104 | Time: 136s
+  Epoch 13 | Batch 300/1267 | Loss: 3.2467 | Perplexity: 25.70 | LR: 0.000102 | Time: 203s
+  Epoch 13 | Batch 400/1267 | Loss: 3.2486 | Perplexity: 25.75 | LR: 0.000100 | Time: 271s
+  Epoch 13 | Batch 500/1267 | Loss: 3.2497 | Perplexity: 25.78 | LR: 0.000098 | Time: 339s
+  Epoch 13 | Batch 600/1267 | Loss: 3.2515 | Perplexity: 25.83 | LR: 0.000096 | Time: 407s
+  Epoch 13 | Batch 700/1267 | Loss: 3.2532 | Perplexity: 25.87 | LR: 0.000095 | Time: 475s
+  Epoch 13 | Batch 800/1267 | Loss: 3.2547 | Perplexity: 25.91 | LR: 0.000093 | Time: 542s
+  Epoch 13 | Batch 900/1267 | Loss: 3.2575 | Perplexity: 25.99 | LR: 0.000091 | Time: 610s
+  Epoch 13 | Batch 1000/1267 | Loss: 3.2576 | Perplexity: 25.99 | LR: 0.000089 | Time: 678s
+  Epoch 13 | Batch 1100/1267 | Loss: 3.2567 | Perplexity: 25.96 | LR: 0.000088 | Time: 746s
+  Epoch 13 | Batch 1200/1267 | Loss: 3.2551 | Perplexity: 25.92 | LR: 0.000086 | Time: 813s
+
+Epoch 13 Summary:
+  Train Loss   : 3.2547 | Perplexity: 25.91
+  Val Loss     : 3.2037   | Perplexity: 24.62
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.2037)
+
+── Epoch 14/20 ──
+  Epoch 14 | Batch 100/1267 | Loss: 3.2326 | Perplexity: 25.35 | LR: 0.000083 | Time: 68s
+  Epoch 14 | Batch 200/1267 | Loss: 3.2348 | Perplexity: 25.40 | LR: 0.000081 | Time: 136s
+  Epoch 14 | Batch 300/1267 | Loss: 3.2323 | Perplexity: 25.34 | LR: 0.000080 | Time: 203s
+  Epoch 14 | Batch 400/1267 | Loss: 3.2387 | Perplexity: 25.50 | LR: 0.000078 | Time: 271s
+  Epoch 14 | Batch 500/1267 | Loss: 3.2375 | Perplexity: 25.47 | LR: 0.000076 | Time: 339s
+  Epoch 14 | Batch 600/1267 | Loss: 3.2374 | Perplexity: 25.47 | LR: 0.000075 | Time: 407s
+  Epoch 14 | Batch 700/1267 | Loss: 3.2376 | Perplexity: 25.47 | LR: 0.000073 | Time: 475s
+  Epoch 14 | Batch 800/1267 | Loss: 3.2387 | Perplexity: 25.50 | LR: 0.000072 | Time: 542s
+  Epoch 14 | Batch 900/1267 | Loss: 3.2398 | Perplexity: 25.53 | LR: 0.000070 | Time: 610s
+  Epoch 14 | Batch 1000/1267 | Loss: 3.2396 | Perplexity: 25.52 | LR: 0.000068 | Time: 678s
+  Epoch 14 | Batch 1100/1267 | Loss: 3.2392 | Perplexity: 25.51 | LR: 0.000067 | Time: 746s
+  Epoch 14 | Batch 1200/1267 | Loss: 3.2383 | Perplexity: 25.49 | LR: 0.000065 | Time: 814s
+
+Epoch 14 Summary:
+  Train Loss   : 3.2386 | Perplexity: 25.50
+  Val Loss     : 3.1934   | Perplexity: 24.37
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1934)
+
+── Epoch 15/20 ──
+  Epoch 15 | Batch 100/1267 | Loss: 3.2241 | Perplexity: 25.13 | LR: 0.000063 | Time: 68s
+  Epoch 15 | Batch 200/1267 | Loss: 3.2284 | Perplexity: 25.24 | LR: 0.000061 | Time: 136s
+  Epoch 15 | Batch 300/1267 | Loss: 3.2255 | Perplexity: 25.17 | LR: 0.000060 | Time: 203s
+  Epoch 15 | Batch 400/1267 | Loss: 3.2241 | Perplexity: 25.13 | LR: 0.000058 | Time: 271s
+  Epoch 15 | Batch 500/1267 | Loss: 3.2236 | Perplexity: 25.12 | LR: 0.000057 | Time: 339s
+  Epoch 15 | Batch 600/1267 | Loss: 3.2238 | Perplexity: 25.12 | LR: 0.000055 | Time: 407s
+  Epoch 15 | Batch 700/1267 | Loss: 3.2257 | Perplexity: 25.17 | LR: 0.000054 | Time: 475s
+  Epoch 15 | Batch 800/1267 | Loss: 3.2252 | Perplexity: 25.16 | LR: 0.000052 | Time: 542s
+  Epoch 15 | Batch 900/1267 | Loss: 3.2257 | Perplexity: 25.17 | LR: 0.000051 | Time: 610s
+  Epoch 15 | Batch 1000/1267 | Loss: 3.2268 | Perplexity: 25.20 | LR: 0.000049 | Time: 678s
+  Epoch 15 | Batch 1100/1267 | Loss: 3.2265 | Perplexity: 25.19 | LR: 0.000048 | Time: 746s
+  Epoch 15 | Batch 1200/1267 | Loss: 3.2255 | Perplexity: 25.17 | LR: 0.000047 | Time: 813s
+
+Epoch 15 Summary:
+  Train Loss   : 3.2250 | Perplexity: 25.15
+  Val Loss     : 3.1858   | Perplexity: 24.19
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1858)
+
+── Epoch 16/20 ──
+  Epoch 16 | Batch 100/1267 | Loss: 3.2029 | Perplexity: 24.60 | LR: 0.000044 | Time: 68s
+  Epoch 16 | Batch 200/1267 | Loss: 3.2046 | Perplexity: 24.65 | LR: 0.000043 | Time: 136s
+  Epoch 16 | Batch 300/1267 | Loss: 3.2054 | Perplexity: 24.67 | LR: 0.000042 | Time: 203s
+  Epoch 16 | Batch 400/1267 | Loss: 3.2045 | Perplexity: 24.64 | LR: 0.000040 | Time: 271s
+  Epoch 16 | Batch 500/1267 | Loss: 3.2078 | Perplexity: 24.73 | LR: 0.000039 | Time: 339s
+  Epoch 16 | Batch 600/1267 | Loss: 3.2095 | Perplexity: 24.77 | LR: 0.000038 | Time: 407s
+  Epoch 16 | Batch 700/1267 | Loss: 3.2084 | Perplexity: 24.74 | LR: 0.000037 | Time: 475s
+  Epoch 16 | Batch 800/1267 | Loss: 3.2102 | Perplexity: 24.78 | LR: 0.000035 | Time: 542s
+  Epoch 16 | Batch 900/1267 | Loss: 3.2111 | Perplexity: 24.81 | LR: 0.000034 | Time: 610s
+  Epoch 16 | Batch 1000/1267 | Loss: 3.2115 | Perplexity: 24.82 | LR: 0.000033 | Time: 678s
+  Epoch 16 | Batch 1100/1267 | Loss: 3.2129 | Perplexity: 24.85 | LR: 0.000032 | Time: 746s
+  Epoch 16 | Batch 1200/1267 | Loss: 3.2137 | Perplexity: 24.87 | LR: 0.000031 | Time: 814s
+
+Epoch 16 Summary:
+  Train Loss   : 3.2145 | Perplexity: 24.89
+  Val Loss     : 3.1796   | Perplexity: 24.04
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1796)
+
+── Epoch 17/20 ──
+  Epoch 17 | Batch 100/1267 | Loss: 3.1998 | Perplexity: 24.53 | LR: 0.000030 | Time: 68s
+  Epoch 17 | Batch 200/1267 | Loss: 3.2012 | Perplexity: 24.56 | LR: 0.000030 | Time: 136s
+  Epoch 17 | Batch 300/1267 | Loss: 3.2030 | Perplexity: 24.61 | LR: 0.000030 | Time: 203s
+  Epoch 17 | Batch 400/1267 | Loss: 3.2044 | Perplexity: 24.64 | LR: 0.000030 | Time: 271s
+  Epoch 17 | Batch 500/1267 | Loss: 3.2029 | Perplexity: 24.60 | LR: 0.000030 | Time: 339s
+  Epoch 17 | Batch 600/1267 | Loss: 3.2040 | Perplexity: 24.63 | LR: 0.000030 | Time: 407s
+  Epoch 17 | Batch 700/1267 | Loss: 3.2032 | Perplexity: 24.61 | LR: 0.000030 | Time: 475s
+  Epoch 17 | Batch 800/1267 | Loss: 3.2028 | Perplexity: 24.60 | LR: 0.000030 | Time: 542s
+  Epoch 17 | Batch 900/1267 | Loss: 3.2034 | Perplexity: 24.62 | LR: 0.000030 | Time: 610s
+  Epoch 17 | Batch 1000/1267 | Loss: 3.2039 | Perplexity: 24.63 | LR: 0.000030 | Time: 678s
+  Epoch 17 | Batch 1100/1267 | Loss: 3.2060 | Perplexity: 24.68 | LR: 0.000030 | Time: 746s
+  Epoch 17 | Batch 1200/1267 | Loss: 3.2067 | Perplexity: 24.70 | LR: 0.000030 | Time: 814s
+
+Epoch 17 Summary:
+  Train Loss   : 3.2074 | Perplexity: 24.71
+  Val Loss     : 3.1774   | Perplexity: 23.99
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1774)
+
+── Epoch 18/20 ──
+  Epoch 18 | Batch 100/1267 | Loss: 3.2018 | Perplexity: 24.58 | LR: 0.000030 | Time: 68s
+  Epoch 18 | Batch 200/1267 | Loss: 3.1965 | Perplexity: 24.45 | LR: 0.000030 | Time: 136s
+  Epoch 18 | Batch 300/1267 | Loss: 3.1976 | Perplexity: 24.47 | LR: 0.000030 | Time: 203s
+  Epoch 18 | Batch 400/1267 | Loss: 3.2004 | Perplexity: 24.54 | LR: 0.000030 | Time: 271s
+  Epoch 18 | Batch 500/1267 | Loss: 3.1991 | Perplexity: 24.51 | LR: 0.000030 | Time: 339s
+  Epoch 18 | Batch 600/1267 | Loss: 3.2013 | Perplexity: 24.56 | LR: 0.000030 | Time: 407s
+  Epoch 18 | Batch 700/1267 | Loss: 3.2024 | Perplexity: 24.59 | LR: 0.000030 | Time: 475s
+  Epoch 18 | Batch 800/1267 | Loss: 3.2025 | Perplexity: 24.59 | LR: 0.000030 | Time: 542s
+  Epoch 18 | Batch 900/1267 | Loss: 3.2030 | Perplexity: 24.61 | LR: 0.000030 | Time: 610s
+  Epoch 18 | Batch 1000/1267 | Loss: 3.2037 | Perplexity: 24.62 | LR: 0.000030 | Time: 678s
+  Epoch 18 | Batch 1100/1267 | Loss: 3.2045 | Perplexity: 24.64 | LR: 0.000030 | Time: 746s
+  Epoch 18 | Batch 1200/1267 | Loss: 3.2044 | Perplexity: 24.64 | LR: 0.000030 | Time: 814s
+
+Epoch 18 Summary:
+  Train Loss   : 3.2046 | Perplexity: 24.65
+  Val Loss     : 3.1749   | Perplexity: 23.92
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1749)
+
+── Epoch 19/20 ──
+  Epoch 19 | Batch 100/1267 | Loss: 3.1961 | Perplexity: 24.44 | LR: 0.000030 | Time: 68s
+  Epoch 19 | Batch 200/1267 | Loss: 3.2003 | Perplexity: 24.54 | LR: 0.000030 | Time: 136s
+  Epoch 19 | Batch 300/1267 | Loss: 3.1998 | Perplexity: 24.53 | LR: 0.000030 | Time: 203s
+  Epoch 19 | Batch 400/1267 | Loss: 3.2008 | Perplexity: 24.55 | LR: 0.000030 | Time: 271s
+  Epoch 19 | Batch 500/1267 | Loss: 3.1993 | Perplexity: 24.51 | LR: 0.000030 | Time: 339s
+  Epoch 19 | Batch 600/1267 | Loss: 3.1998 | Perplexity: 24.53 | LR: 0.000030 | Time: 407s
+  Epoch 19 | Batch 700/1267 | Loss: 3.2000 | Perplexity: 24.53 | LR: 0.000030 | Time: 474s
+  Epoch 19 | Batch 800/1267 | Loss: 3.2013 | Perplexity: 24.56 | LR: 0.000030 | Time: 542s
+  Epoch 19 | Batch 900/1267 | Loss: 3.2002 | Perplexity: 24.54 | LR: 0.000030 | Time: 610s
+  Epoch 19 | Batch 1000/1267 | Loss: 3.2005 | Perplexity: 24.54 | LR: 0.000030 | Time: 678s
+  Epoch 19 | Batch 1100/1267 | Loss: 3.2007 | Perplexity: 24.55 | LR: 0.000030 | Time: 746s
+  Epoch 19 | Batch 1200/1267 | Loss: 3.2011 | Perplexity: 24.56 | LR: 0.000030 | Time: 813s
+
+Epoch 19 Summary:
+  Train Loss   : 3.2016 | Perplexity: 24.57
+  Val Loss     : 3.1722   | Perplexity: 23.86
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1722)
+
+── Epoch 20/20 ──
+  Epoch 20 | Batch 100/1267 | Loss: 3.1931 | Perplexity: 24.36 | LR: 0.000030 | Time: 68s
+  Epoch 20 | Batch 200/1267 | Loss: 3.1945 | Perplexity: 24.40 | LR: 0.000030 | Time: 136s
+  Epoch 20 | Batch 300/1267 | Loss: 3.1912 | Perplexity: 24.32 | LR: 0.000030 | Time: 203s
+  Epoch 20 | Batch 400/1267 | Loss: 3.1915 | Perplexity: 24.33 | LR: 0.000030 | Time: 271s
+  Epoch 20 | Batch 500/1267 | Loss: 3.1929 | Perplexity: 24.36 | LR: 0.000030 | Time: 339s
+  Epoch 20 | Batch 600/1267 | Loss: 3.1960 | Perplexity: 24.43 | LR: 0.000030 | Time: 407s
+  Epoch 20 | Batch 700/1267 | Loss: 3.1965 | Perplexity: 24.45 | LR: 0.000030 | Time: 474s
+  Epoch 20 | Batch 800/1267 | Loss: 3.1979 | Perplexity: 24.48 | LR: 0.000030 | Time: 542s
+  Epoch 20 | Batch 900/1267 | Loss: 3.1975 | Perplexity: 24.47 | LR: 0.000030 | Time: 610s
+  Epoch 20 | Batch 1000/1267 | Loss: 3.1980 | Perplexity: 24.48 | LR: 0.000030 | Time: 678s
+  Epoch 20 | Batch 1100/1267 | Loss: 3.1976 | Perplexity: 24.47 | LR: 0.000030 | Time: 746s
+  Epoch 20 | Batch 1200/1267 | Loss: 3.1978 | Perplexity: 24.48 | LR: 0.000030 | Time: 813s
+
+Epoch 20 Summary:
+  Train Loss   : 3.1985 | Perplexity: 24.50
+  Val Loss     : 3.1700   | Perplexity: 23.81
+  Time         : 14.9 minutes
+  ✓ New best model saved (val_loss: 3.1700)
+
+============================================================
+Training Complete
+Experiment         : exp2_heads4_layers8
+Best val loss      : 3.1700
+Best val perplexity: 23.81
+Best model saved at: ../experiments/exp2_heads4_layers8/checkpoints/best_model.pt
+============================================================
+=================================================================
+     TRAINING RESULTS — exp2_heads4_layers8
+=================================================================
+ Epoch  Train Loss  Val Loss  Train Perplexity  Val Perplexity
+     1      5.5348    4.3287            253.35           75.85
+     2      4.1344    3.8425             62.45           46.64
+     3      3.8254    3.6359             45.85           37.94
+     4      3.6679    3.5165             39.17           33.67
+     5      3.5656    3.4379             35.36           31.12
+     6      3.4916    3.3788             32.84           29.34
+     7      3.4347    3.3316             31.02           27.98
+     8      3.3896    3.3019             29.65           27.16
+     9      3.3527    3.2710             28.58           26.34
+    10      3.3216    3.2485             27.70           25.75
+    11      3.2957    3.2296             27.00           25.27
+    12      3.2737    3.2155             26.41           24.92
+    13      3.2547    3.2037             25.91           24.62
+    14      3.2386    3.1934             25.50           24.37
+    15      3.2250    3.1858             25.15           24.19
+    16      3.2145    3.1796             24.89           24.04
+    17      3.2074    3.1774             24.71           23.99
+    18      3.2046    3.1749             24.65           23.92
+    19      3.2016    3.1722             24.57           23.86
+    20      3.1985    3.1700             24.50           23.81
+=================================================================
+  Best Epoch         : 20
+  Best Val Loss      : 3.17
+  Best Val Perplexity: 23.81
+=================================================================
+Loss curve saved to ../experiments/exp2_heads4_layers8/checkpoints/loss_curve.png
+['.ipynb_checkpoints', 'checkpoints', 'data', 'inference', 'model', 'notebooks', 'tokenizer', 'training', 'ui', 'utils', 'experiments']
+['.ipynb_checkpoints', 'step1_data_cleaning (1).ipynb', 'step2_tokenizer.ipynb', 'step3_prepare_sequences.ipynb', 'step4_model.ipynb', 'step5_train.ipynb', 'step5_train.py', 'training_log.txt', 'step6.ipynb']
+[]
+151:         K = self.W_k(x).view(B, T, self.n_heads, self.d_head).transpose(1, 2)
+152:         V = self.W_v(x).view(B, T, self.n_heads, self.d_head).transpose(1, 2)
+153:         scale  = math.sqrt(self.d_head)
+154:         scores = torch.matmul(Q, K.transpose(-2, -1)) / scale
+155:         if causal_mask is not None:
+156:             scores = scores.masked_fill(causal_mask == 0, float('-inf'))
+157:         if pad_mask is not None:
+158:             scores = scores.masked_fill(pad_mask.unsqueeze(1).unsqueeze(2) == 0, float('-inf'))
+159:         attn = F.softmax(scores, dim=-1)
+160:         attn = torch.nan_to_num(attn, nan=0.0)
+161:         attn = self.dropout(attn)
+162:         out  = torch.matmul(attn, V)
+163:         out  = out.transpose(1, 2).contiguous().view(B, T, self.d_model)
+164:         return self.W_o(out)
+165: 
+166: 
+167: class FeedForward(nn.Module):
+168:     def __init__(self, d_model, ffn_dim, dropout=0.1):
+169:         super().__init__()
+170:         self.net = nn.Sequential(
+171:             nn.Linear(d_model, ffn_dim),
+172:             nn.GELU(),
+173:             nn.Dropout(dropout),
+174:             nn.Linear(ffn_dim, d_model),
+175:             nn.Dropout(dropout)
+176:         )
+177:     def forward(self, x):
+178:         return self.net(x)
+179: 
+180: 
+Using device: cuda
+✅ Model loaded from ../experiments/exp2_heads4_layers8/checkpoints/best_model.pt
+✅ Tokenizer loaded!
+
+============================================================
+   GENERATION TEST — exp2_heads4_layers8
+============================================================
+
+Patient : I have fever and headache for 3 days
+Doctor  : Welcome to You have fever,fever with headache, headache, fever, headache and headache, should not be related to the fever. You should go to the ER if you have any fever, then go to the ER.
+------------------------------------------------------------
+
+Patient : I am experiencing chest pain and shortness of breath
+Doctor  : welcome to forum. First of all you need to go to a chest physician. A chest X ray, and an ECG is needed to rule out cardiovascular conditions. I would recommend you to meet a cardiologist. For sure you are well. You will need to have a cardiologist to get the chest X-ray done to rule out heart problem.
+------------------------------------------------------------
+
+Patient : I have a sore throat and runny nose
+Doctor  : you have a sore throat it could be throat ,it can be throat or throat infection.you should visit a doctor for the proper prescription and treatment .
+------------------------------------------------------------
+============================================================
+     STEP 5 — TRAINING COMPLETE SUMMARY
+     Experiment : exp2_heads4_layers8
+============================================================
+  Model          : MedicalGPT (Transformer Decoder)
+  Dataset        : HealthCareMagic (~101k conversations)
+  Tokenizer      : SentencePiece BPE — vocab size 8000
+  Parameters     : 8,497,664
+  d_model        : 256
+  n_heads        : 4
+  n_layers       : 8
+  ffn_dim        : 1024
+  Epochs trained : 20
+  Best epoch     : 20
+  Best val loss  : 3.17
+  Best val perplexity : 23.81
+  Device         : cuda
+============================================================
+
+  Saved files:
+  ../experiments/exp2_heads4_layers8/checkpoints/best_model.pt   ← use for evaluation & UI
+  ../experiments/exp2_heads4_layers8/checkpoints/loss_curve.png  ← loss & perplexity plots
+  ../experiments/exp2_heads4_layers8/config.json            ← experiment config
+  ../experiments/exp2_heads4_layers8/notes.txt              ← experiment notes
+
+  Next → Step 6: Evaluate (BLEU, ROUGE, Perplexity on test set)
+============================================================

@@ -1,0 +1,32 @@
+# Model checkpoints — upload to Drive/OneDrive instead
+data/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Data files — too large for GitHub
+data/raw
+data/cleaned_data
+data/cleaned_sequences
+data/train
+data/val
+data/test
+data/*.pt
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+nohup.out
